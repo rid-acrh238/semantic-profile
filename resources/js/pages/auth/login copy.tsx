@@ -20,7 +20,7 @@ type Props = {
 export default function Login({ status, canResetPassword }: Props) {
     return (
         <>
-            <Head title="Login" />
+            <Head title="Log in" />
 
             <PasskeyVerify />
 
@@ -31,13 +31,9 @@ export default function Login({ status, canResetPassword }: Props) {
             >
                 {({ processing, errors }) => (
                     <>
-                        <div className="grid gap-5">
-                            {/* EMAIL */}
+                        <div className="grid gap-6">
                             <div className="grid gap-2">
-                                <Label htmlFor="email">
-                                    Alamat Email
-                                </Label>
-
+                                <Label htmlFor="email">Email address</Label>
                                 <Input
                                     id="email"
                                     type="email"
@@ -46,82 +42,60 @@ export default function Login({ status, canResetPassword }: Props) {
                                     autoFocus
                                     tabIndex={1}
                                     autoComplete="email"
-                                    placeholder="nama@stikomelrahma.ac.id"
-                                    className="h-11"
+                                    placeholder="email@example.com"
                                 />
-
                                 <InputError message={errors.email} />
                             </div>
 
-                            {/* PASSWORD */}
                             <div className="grid gap-2">
                                 <div className="flex items-center">
-                                    <Label htmlFor="password">
-                                        Password
-                                    </Label>
-
+                                    <Label htmlFor="password">Password</Label>
                                     {canResetPassword && (
                                         <TextLink
                                             href={request()}
-                                            className="ml-auto text-sm font-medium"
+                                            className="ml-auto text-sm"
                                             tabIndex={5}
                                         >
-                                            Lupa password?
+                                            Forgot your password?
                                         </TextLink>
                                     )}
                                 </div>
-
                                 <PasswordInput
                                     id="password"
                                     name="password"
                                     required
                                     tabIndex={2}
                                     autoComplete="current-password"
-                                    placeholder="Masukkan password Anda"
-                                    className="h-11"
+                                    placeholder="Password"
                                 />
-
                                 <InputError message={errors.password} />
                             </div>
 
-                            {/* REMEMBER */}
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center space-x-3">
                                 <Checkbox
                                     id="remember"
                                     name="remember"
                                     tabIndex={3}
                                 />
-
-                                <Label
-                                    htmlFor="remember"
-                                    className="font-normal"
-                                >
-                                    Ingat saya
-                                </Label>
+                                <Label htmlFor="remember">Remember me</Label>
                             </div>
 
-                            {/* BUTTON */}
                             <Button
                                 type="submit"
-                                className="mt-2 h-11 w-full bg-blue-600 text-base font-semibold hover:bg-blue-700"
+                                className="mt-4 w-full"
                                 tabIndex={4}
                                 disabled={processing}
                                 data-test="login-button"
                             >
                                 {processing && <Spinner />}
-                                Masuk
+                                Log in
                             </Button>
                         </div>
 
-                        {/* REGISTER */}
                         <div className="text-center text-sm text-muted-foreground">
-                            Belum memiliki akun?{' '}
-                            <TextLink
-                                href={register()}
-                                tabIndex={5}
-                                className="font-medium"
-                            >
-                                Daftar sekarang
+                            Don't have an account?{' '}
+                            <TextLink href={register()} tabIndex={5}>
+                                Sign up
                             </TextLink>
                         </div>
                     </>
@@ -129,7 +103,7 @@ export default function Login({ status, canResetPassword }: Props) {
             </Form>
 
             {status && (
-                <div className="mt-4 text-center text-sm font-medium text-green-600">
+                <div className="mb-4 text-center text-sm font-medium text-green-600">
                     {status}
                 </div>
             )}
@@ -138,7 +112,6 @@ export default function Login({ status, canResetPassword }: Props) {
 }
 
 Login.layout = {
-    title: 'Selamat Datang 👋',
-    description:
-        'Masuk ke akun Anda untuk melanjutkan ke Semantic Profile STIKOM El Rahma.',
+    title: 'Log in to your account',
+    description: 'Enter your email and password below to log in',
 };

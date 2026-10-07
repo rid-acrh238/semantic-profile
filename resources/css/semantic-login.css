@@ -1,0 +1,172 @@
+/* =========================================
+   SEMANTIC PROFILE
+   Corporate Tech Background
+   ========================================= */
+
+@keyframes semantic-pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 1;
+    }
+}
+
+@keyframes semantic-float {
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-18px) translateX(8px);
+    }
+}
+
+@keyframes semantic-scan {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.7;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes semantic-grid {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 40px 40px;
+    }
+}
+
+@keyframes semantic-line {
+    0% {
+        stroke-dashoffset: 100;
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 0.15;
+    }
+}
+
+.semantic-grid {
+    background-image:
+        linear-gradient(rgba(96, 165, 250, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(96, 165, 250, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: semantic-grid 18s linear infinite;
+}
+
+.semantic-node {
+    animation: semantic-pulse 3s ease-in-out infinite;
+}
+
+.semantic-float {
+    animation: semantic-float 7s ease-in-out infinite;
+}
+
+.semantic-scan {
+    animation: semantic-scan 8s linear infinite;
+}
+
+.semantic-line {
+    stroke-dasharray: 8 12;
+    animation: semantic-line 4s linear infinite;
+}
+
+/* =========================================
+   MINI NETWORK GEOMETRY
+   ========================================= */
+
+@keyframes mini-network-float {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate3d(18px, -12px, 0) rotate(25deg);
+    }
+
+    50% {
+        transform: translate3d(-8px, 20px, 0) rotate(-15deg);
+    }
+
+    75% {
+        transform: translate3d(-20px, -8px, 0) rotate(35deg);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+}
+
+@keyframes mini-network-pulse {
+    0%,
+    100% {
+        opacity: 0.18;
+    }
+
+    50% {
+        opacity: 0.55;
+    }
+}
+
+@keyframes mini-network-morph {
+    0% {
+        d: path("M10 25 L35 5 L60 25 L45 55 L15 50 Z");
+    }
+
+    25% {
+        d: path("M8 28 L28 8 L62 18 L52 48 L20 58 Z");
+    }
+
+    50% {
+        d: path("M15 15 L48 5 L65 35 L38 60 L8 42 Z");
+    }
+
+    75% {
+        d: path("M5 30 L32 2 L58 15 L60 45 L25 58 Z");
+    }
+
+    100% {
+        d: path("M10 25 L35 5 L60 25 L45 55 L15 50 Z");
+    }
+}
+
+.mini-network {
+    animation:
+        mini-network-float var(--network-speed, 18s) ease-in-out infinite,
+        mini-network-pulse var(--pulse-speed, 5s) ease-in-out infinite;
+}
+
+.mini-network-path {
+    animation: mini-network-morph var(--morph-speed, 12s) ease-in-out infinite;
+}
+
+.mini-network-node {
+    animation: mini-network-pulse var(--pulse-speed, 4s) ease-in-out infinite;
+}
