@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'welcome')->name('home');
 
-Route::middleware(['auth', 'admin.2fa'])->group(function () {
+Route::middleware(['auth', 'admin', 'admin.2fa'])->group(function () {
     Route::inertia('dashboard', 'dashboard')->name('dashboard');
 
 Route::inertia('admin/mahasiswa', 'admin/mahasiswa')
